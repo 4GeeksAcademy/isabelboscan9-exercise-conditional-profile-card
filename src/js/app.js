@@ -30,47 +30,35 @@ function render(variables = {}) {
   if (variables.includeCover == false) cover = "<div class='cover'></div>";
 
   /*-----Twitter------*/
-  let twitter = "";
-  if (!variables.twitter) twitter += "https://twitter.com/4geeksacademy";
-  else twitter += variables.twitter;
+  let twitter = variables.twitter ? variables.twitter : "https://twitter.com";
 
   /*-----Github------*/
-  let github = "";
-  if (!variables.github) github += "https://github.com/4geeksacademy";
-  else github += variables.github;
+  let github = variables.github ? variables.github : "https://github.com";
 
-  /*-----Github------*/
-  let linkedin = "";
-  if (!variables.linkedin)
-    linkedin += "https://linkedin.com/school/4geeksacademy";
-  else linkedin += variables.linkedin;
+  /*-----LinkedIn------*/
+  let linkedin = variables.linkedin
+    ? variables.linkedin
+    : "https://linkedin.com"; // Corregido
 
   /*-----Instagram------*/
-  let instagram = "";
-  if (!variables.instagram) instagram += "https://instagram.com/4geeksacademy";
-  else instagram += variables.instagram;
+  let instagram = variables.instagram
+    ? variables.instagram
+    : "https://instagram.com";
 
   /*-----FullName------*/
-  let fullName = "";
-  if (!variables.name) fullName += "Your Name";
-  else fullName += variables.name + " ";
-  if (!variables.lastName) fullName += " Your last Name";
-  else fullName += variables.lastName;
+  let fullName =
+    (variables.name || "Your Name") +
+    " " +
+    (variables.lastName || "Your last Name");
 
   /*-----ROL------*/
-  let roleFinal = "";
-  if (!variables.role) roleFinal += "Web Developer";
-  else roleFinal += variables.role;
+  let roleFinal = variables.role || "Web Developer";
 
   /*-----City------*/
-  let cityFinal = "";
-  if (!variables.city) cityFinal += "Miami";
-  else cityFinal += variables.city;
+  let cityFinal = variables.city || "Miami";
 
   /*-----country------*/
-  let countryFinal = "";
-  if (!variables.country) countryFinal += "USA";
-  else countryFinal += variables.country;
+  let countryFinal = variables.country || "USA";
 
   // reset the website body with the new html output
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
